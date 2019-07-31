@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			td{
+				width: 200px;
+				height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<table border="" cellspacing="" cellpadding="">
+			<tr>
+				<td ondrop="drop(event)"><img ondragstart="drag(event)" src="" draggable="true"/></td>
+				<td ondrop="drop(event)"><img ondragstart="drag(event)" src="" draggable="true"/></td>
+				<td ondrop="drop(event)"><img ondragstart="drag(event)" src="" draggable="true"/></td>
+			</tr>
+			<tr>
+				<td ondrop="drop(event)"><img ondragstart="drag(event)" src="" draggable="true"/></td>
+				<td ondrop="drop(event)"><img ondragstart="drag(event)" src="" draggable="true"/></td>
+				<td ondrop="drop(event)"><img ondragstart="drag(event)" src="" draggable="true"/></td>
+			</tr>
+			<tr>
+				<td ondrop="drop(event)"><img ondragstart="drag(event)" src="" draggable="true"/></td>
+				<td ondrop="drop(event)"><img ondragstart="drag(event)" src="" draggable="true"/></td>
+				<td ondrop="drop(event)"><img ondragstart="drag(event)" src="" draggable="true"/></td>
+			</tr>
+		</table>
+	</body>
+	<script type="text/javascript">
+		var arr = [];
+		var step = 0;
+		var list = [0,1,2,3,4,5,6,7,8];
+		
+		var img = document.querySelectorAll("img");
+		for(var i=0;i<9;i++){
+			var index = getIndex()
+			arr[i] = index;
+			img[i].setAttribute("src","img/pic"+(index+1)+".jpg");
+			img[i].id = index;
+		};
+		
+		function getIndex(){
+			var index = Math.random()*9;  //[0,9]
+			index = Math.floor(index);
+			for(var i=0;i<arr.length;i++){
+				if(index == arr[i]){
+					return getIndex();
+					break;
+				}
+			}
+			return index;
+		}
+		
+		var source;//被拖动元素img
+		var target;//目标元素td
+		var pSource//被拖动元素的父元素td
+		var cTarget;//目标元素的子元素img
+		
+		//开始拖动
+		function drag(ev){
+			source = ev.target; //img
+			pSource = ev.target.parentNode; //td
+			pSource.style.opacity = .5;
+		};
+		//拖动的目标元素 鼠标释放
+		function drop(ev){
+			cTarget = ev.target; //img
+			target = ev.target.parentNode; //td
+			
+			target.appendChild(source);
+			pSource.appendChild(cTarget);
+			pSource.style.opacity = 1;
+			
+			step++;
+			var imgs = document.querySelectorAll("img");
+			var newArr = [];
+			for(var i=0;i<imgs.length;i++){
+				newArr[i] = Number(imgs[i].id);
+			};
+			console.log(newArr)
+			if(newArr.toString() == list.toString()){
+				alert("success"+step);
+			}
+		};
+		
+		document.addEventListener("dragover",function(ev){
+			//组织页面禁止拖放的默认事件
+			ev.preventDefault()
+		})
+	</script>
+</html>
