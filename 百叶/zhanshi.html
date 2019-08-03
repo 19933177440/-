@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<link rel="shortcut icon" type="image/x-icon" href="img/webwxgetmsgimg10.png"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>展示页面</title>
+<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="css/demo.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<div id="sections-wrapper">
+		<section class="show" data-img="img/6666.jpg"></section>
+		<section class="hide-bottom" data-img="img/1111.jpg"></section>
+		<section class="hide-bottom" data-img="img/3333.jpg"></section>
+		<section class="hide-bottom" data-img="img/4444.jpg"></section>
+		<section class="hide-bottom" data-img="img/5555.jpg"></section>
+	</div>
+
+	<!-- sections control -->
+	<div class="sections-control">
+		<div class="section-thumbnail active"></div>
+		<div class="section-thumbnail"></div>
+		<div class="section-thumbnail"></div>
+		<div class="section-thumbnail"></div>
+		<div class="section-thumbnail"></div>
+	</div>
+
+</body>
+<script src="js/anime.min.js"></script>
+<script src="js/interaction.js"></script>
+<script src="js/jquery-3.1.1.min.js"></script>
+<script>
+	$('.segment-inner').click(function(){
+		window.location.href="https://www.baidu.com"
+	})
+</script>
+</html>
