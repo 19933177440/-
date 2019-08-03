@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>花瓣飘零</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			#stage{
+				position: relative;
+				overflow: hidden;
+			}
+			#stage div{
+				position: absolute;
+				background-size: 100% 100%;
+				background-image: url(icon.png);
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="stage">
+			
+		</div>
+		
+		<script type="text/javascript">
+			var w=document.documentElement.clientWidth;
+			var h=document.documentElement.clientHeight;
+			
+			var obj=document.getElementById("stage");
+			obj.style.width=w+"px";
+			obj.style.height=h+"px";
+			obj.style.backgroundColor="black";
+			
+			var flowers=[];
+			var flowerNum=30;
+			
+			for(var i=0;i<flowerNum;i++){
+				var x=Math.random()*w;
+				flowers[i]={
+					x:x,
+					y:Math.random()*h,
+					speedX:Math.random()*0.5+0.5,//[0.5-1]
+					speedY:Math.random()*0.5+0.5,
+					width:Math.random()*20+10,
+					shake:Math.random()*20+50,
+					ox:x,
+				}
+			}
+//			console.log(flowers)
+			function showFlower(){
+				var html="";
+				for(var i=0;i<flowerNum;i++){
+					var flower=flowers[i];
+					html+="<div style='width:"+flower.width+"px;height:"+flower.width+"px;left:"+flower.x+"px;top:"+flower.y+"px;'></div>"
+				};
+				obj.innerHTML=html;	
+			};
+			
+			showFlower();
+			
+			
+			function move(){
+				for(var i=0;i<flowerNum;i++){
+					var flower=flowers[i];
+					var y=flower.y;
+					if(y>h){
+						//初始化这个花瓣
+						var x=Math.random()*w;
+						var width=Math.random()*20+10;
+						flowers[i]={
+							x:x,
+							y:Math.random()*h,
+							speedX:Math.pow(-1,Math.floor(Math.random()*flowerNum))*Math.random()*0.5+0.5,//[0.5-1]
+							speedY:Math.random()*0.5+0.5,
+							width:width,
+							shake:Math.random()*20+50,
+							ox:x,
+						}
+					}else{
+						flowers[i].y=y+flower.speedY;
+					};
+//					flowers[i].x=x+flower.speedX
+				};
+				showFlower();
+			};
+			setInterval(function(){
+				move();
+			},10)
+		</script>
+	</body>
+</html>

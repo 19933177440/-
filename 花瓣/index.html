@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>花瓣雨</title>
+		<style>
+			*{
+				margin:0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			#stage{
+				position: absolute;
+				overflow: hidden;
+			}
+			#stage div{
+				position:absolute;
+				background:url(img/timg.jpg) no-repeat;
+				background-size:100% 100%;
+			}
+			.new{
+				position:absolute;
+				width:100%;
+				height:100%;
+				top:0;
+				left:0;
+				z-index: 4444;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="stage"></div>
+		<div class="new">
+			
+		</div>
+		<script>
+			//获取宽高
+			var w = document.documentElement.clientWidth;
+			var h = document.documentElement.clientHeight;
+			//设置样式
+			var obj = document.getElementById("stage");
+			obj.style.width = w + "px";
+			obj.style.height = h + "px";
+			obj.style.backgroundColor = "deeppink";
+			
+			//数组
+			var flowers = [];
+			var flowerNum = 30;
+			
+			for(var i = 0;i<flowerNum;i++){
+				
+				var x = Math.random()*w;
+				
+				flowers[i] = {
+					x:x,
+					y:Math.random()*h,
+					//取值范围0.5--1，包括0.5，不包括1
+					//Math.pow(x,y)---x的y次方
+					//水平方向的速度
+					speedX:Math.pow(-1,Math.floor(Math.random()*flowerNum))*Math.random()*0.5+0.5,
+					//垂直方向的速度
+					speedY:Math.random()*0.5+0.5,
+					//宽度
+					width:Math.random()*20+10,
+					
+					shake:Math.random()*20+50,
+					//初始坐标
+					ox:x,
+				}
+			}
+			
+			function showFlower(){
+				var html = "";
+				for(var i= 0;i<flowerNum;i++){
+					var flower = flowers[i];
+					html+="<div style= 'width:"+flower.width+"px;height:"+flower.width+"px;left:"+flower.x+"px;top:"+flower.y+"px;'></div>";
+				}
+				obj.innerHTML = html;
+			};
+			showFlower();
+//JS形式显示到页面
+			
+//    JQ形式显示到页面
+//			obj = $("#stage");
+//			obj.html(html);
+			
+			
+            //滚动			
+			function move(){
+				for(var i= 0;i<flowerNum;i++){
+					var flower = flowers[i];
+					var y = flower.y;
+					if(y>h){
+						//初始化这个花瓣
+						var x = Math.random()*w;
+						var width = Math.random()*20+10;
+						flowers[i] = {
+							x:x,
+							y:-width,
+							//取值范围0.5--1，包括0.5，不包括1.
+							speedX:Math.pow(-1,Math.floor(Math.random()*flowerNum))*Math.random()*0.5+0.5,
+							speedY:Math.random()*0.5+0.5,
+							//宽度
+							width:width,
+							shake:Math.random()*20+50,
+							//初始坐标
+							ox:x,
+						}
+					}else{
+						//垂直位置
+						flowers[i].y = y + flower.speedY;
+					};
+			//更改水平方向坐标
+					flowers[i].x = flower.x + flower.speedX;
+					if(flower.speedX>0 && flower.x>(flower.ox+flower.shake)){
+						flower.speedX = -flower.speedX; 
+					};
+					if(flower.speedX<0 && flower.x<(flower.ox-flower.shake)){
+						flower.speedX = -flower.speedX; 
+					};
+				};
+				showFlower();
+			};
+			
+			
+			var time = new Date().getTime();
+			var nowTime = new Date().getTime();
+			var dataTimer = 0;
+			
+			function loop(){
+				move();
+				
+		
+			nowTime = new Date().getTime();
+			dataTime = nowTime-time;
+			
+			time = nowTime;
+			
+			console.log(dataTime);
+				
+				
+				
+				window.requestAnimationFrame(function(){
+					loop();
+				});
+			}
+			loop();
+			
+			setInterval(function(){
+				move();
+			},20);
+			
+		</script>
+	</body>
+</html>
