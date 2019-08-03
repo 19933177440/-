@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			.small_box{
+				width:300px;
+				height:300px;
+				border:1px solid black;
+				margin:100px 0 0 100px;
+				position:relative;
+				float:left;
+			}
+			.small_box img{
+				width:100%;
+				height:100%;
+			}
+			.fdj{
+				width:50%;
+				height:50%;/*这种办法，只能适用于这个放大镜，小一点的可以看第二遍的效果*/
+				position:absolute;
+				top:0px;
+				left:0px;
+				background: rgba(255,200,0,0.5);
+				cursor:move;
+				display:none;
+			}
+			.big_box{
+				width:300px;
+				height:300px;
+				float:left;
+				border:1px solid black;
+				margin-top:100px;
+				overflow: hidden;
+				display:none;
+				position:relative;
+			}
+			.big_box img{
+				width:300%;
+				height:300%;
+				position:absolute;/*重点*/
+			}
+		</style>
+	</head>
+	<body>
+		<div class="small_box">
+			<img src="img/01.jpg" title="人"/>
+			<div class="fdj"></div>
+		</div>
+		<div class="big_box">
+			<img src="img/01.jpg" title="人"/>
+		</div>
+		<script>
+		var small_box=document.getElementsByClassName("small_box")[0];
+		var fdj=document.getElementsByClassName("fdj")[0];
+		var big_box=document.getElementsByClassName("big_box")[0];
+		var big_img=big_box.getElementsByTagName("img")[0];//重点
+		small_box.onmouseenter=function(){
+			fdj.style.display="block";//让黄色区域显示
+			big_box.style.display="block";//让右侧大盒子显示
+		}
+		small_box.onmouseleave=function(){
+			fdj.style.display="none";//让黄色区域隐藏
+			big_box.style.display="none";//让右侧大盒子隐藏
+		}
+		small_box.onmousemove=function(event){
+//			console.log(event.clientX);//鼠标距离窗口左侧的位置
+//			console.log(event.clientY);//鼠标距离窗口顶部的位置
+			//总宽度-100-150/2
+			var x=event.clientX-small_box.offsetLeft-fdj.offsetWidth/2;
+			var y=event.clientY-small_box.offsetTop-fdj.offsetHeight/2;
+			if(x<0){
+				x=0;//顶住左侧
+			}
+			if(y<0){
+				y=0;//顶住顶部
+			}
+			if(x>small_box.clientWidth-fdj.clientWidth){
+				x=small_box.clientWidth-fdj.clientWidth;
+			}//顶住右侧
+			if(y>small_box.clientHeight-fdj.clientHeight){
+				y=small_box.clientHeight-fdj.clientHeight;
+			}//顶住底部
+			fdj.style.left=x+"px";
+			fdj.style.top=y+"px";
+			big_img.style.left=-x*3+"px";
+			big_img.style.top=-y*3+"px";
+		}
+		</script>
+	</body>
+</html>
