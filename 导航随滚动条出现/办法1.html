@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			.nav{
+				width:100%;
+				height:80px;
+				box-shadow: 0 2px 2px #ccc;
+				background: gold;
+			}
+			.nav_fixed{
+				width:100%;
+				height:80px;
+				box-shadow: 0 2px 2px #ccc;
+				background: gold;
+				position:fixed;
+				left:0;
+				top:0;
+				opacity:1;
+				z-index: 999;
+				background: blueviolet;
+			}
+			.section{
+				width:100%;
+				height:2000px;
+				background: aqua;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="nav" id="nav_id"></div>
+		<div class="section"></div>
+		<script type="text/javascript">
+			var nav_id=document.getElementById("nav_id");
+			var section = document.getElementsByClassName("section")[0];
+			window.onscroll=function(){
+				var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+				if(scrollTop<300){
+					nav_id.className="nav";
+					section.style.marginTop = "0px";
+				}else{
+					nav_id.className="nav_fixed";
+					section.style.marginTop = "80px"
+				}
+			}
+		</script>
+	</body>
+</html>

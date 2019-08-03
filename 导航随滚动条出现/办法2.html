@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			.nav{
+				width:100%;
+				height:100px;
+				background:yellow;
+			}
+			.section{
+				width:100%;
+				height:2000px;
+				background: #00FFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="nav"></div>
+		<div class="section"></div>
+		<script>
+			var nav=document.getElementsByClassName("nav")[0];
+			var section=document.getElementsByClassName("section")[0];
+			window.onscroll=function(){
+				var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+				if(scrollTop>200){
+					nav.style.cssText="position:fixed;left:0;top:0";
+					section.marginTop="80px";
+				}else{
+					nav.style.cssText="";
+					section.marginTop="0";
+				}
+			}
+		</script>
+	</body>
+</html>
