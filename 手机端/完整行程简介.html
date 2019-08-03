@@ -1,0 +1,442 @@
+8<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>完整行程简介</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="font.js" ></script>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			body{
+				background: #eee;
+			}
+			.header{
+				width:100%;
+				height:auto;
+				margin:0 auto;
+				line-height: 1rem;
+				border-bottom: 0.01rem solid #eee;
+				padding-left: 0.1rem;
+				box-sizing: border-box;
+				overflow: hidden;
+			}
+			.header>a{
+				font-size:0.3rem;
+				color:#000;
+				float: left;
+			}
+			.title{
+				width: 80%;
+				display: inline-block;
+				font-size:0.36rem;
+				color:#000;
+				float:left;
+				text-align: center;
+			}
+			.banner{
+				width:100%;
+				height:4rem;
+				margin:0 auto;
+				margin-top:0.2rem;
+				position:relative;
+			}
+			.banner>ul,.banner>ul>li{
+				width:100%;
+				height:100%;
+			}
+			.banner>ul>li{
+				position:absolute;
+				top:0;
+				left:0;
+				display: none;
+			}
+			.banner>ul>li>a>img,.banner>ul>li>a{
+				width:100%;
+				height:100%;
+				display: block;
+			}
+			.banner>ol{
+				width:30%;
+				height:0.03rem;
+				position:absolute;
+				bottom:0.2rem;
+				left:50%;
+				transform: translate(-50%,0);
+				display: flex;
+				justify-content: space-between;
+			}
+			.banner>ol>li{
+				width:30%;
+				height:100%;
+				background: rgba(0,0,0,0.3);
+			}
+			.banner>span>img,.banner>a>img{
+				width:0.3rem;
+				height:0.3rem;
+			}
+			.hong{
+				display: none;
+			}
+			.banner>span{
+				position:absolute;
+				bottom:0rem;
+				right:0.8rem;
+			}
+			.banner>a{
+				position:absolute;
+				bottom:0rem;
+				right:0.3rem;
+			}
+			.yun_nan{
+				width:100%;
+				height:1.4rem;
+				background: white;
+			}
+			.yun_nan_area{
+				width:6.6rem;
+				height:100%;
+				margin:0 auto;
+				padding-top: 0.2rem;
+				box-sizing: border-box;
+			}
+			.yun_nan_area>p:nth-of-type(1){
+				color:black;
+				font-size:0.36rem;
+			}
+			.di_yi{
+				width:100%;
+				height:auto;
+				background: white;
+				margin-top:0.15rem;
+				padding-bottom: 0.3rem;
+				box-sizing: border-box;
+			}
+			.di_yi_area{
+				width:6.6rem;
+				height:100%;
+				margin:0 auto;
+			}
+			.di_yi_top{
+				width:100%;
+				height:0.8rem;
+				line-height: 0.8rem;
+				border-bottom: 0.01rem solid #ccc;
+				font-size:0.2rem;
+				font-weight: bold;
+			}
+			.di_yi_top>span{
+				color:lightgreen;
+				margin-right:0.4rem;
+			}
+			.jiu_dian{
+				width:100%;
+				height:1rem;
+				border-bottom: 0.01rem solid #ccc;
+				font-size:0.2rem;
+			}
+			.jiu_dian>p{
+				margin-top:0.25rem;
+				color:#666;
+			}
+			.jiu_dian>p>span{
+				margin-right:0.05rem;
+			}
+			.di_yi_area>p{
+				margin-top:0.2rem;
+				font-size:0.2rem;
+				color:#666;
+				letter-spacing: 0.02rem;
+			}
+			.chu_xing{
+				width:100%;
+				height:3.2rem;
+				margin:0.15rem auto;
+				background: white;
+			}
+			.chu_xing_area{
+				width:6.6rem;
+				height:100%;
+				margin:0 auto;
+				padding:0.2rem 0;
+				box-sizing: border-box;
+			}
+			.ri_qi{
+				width:100%;
+				height:0.8rem;
+				line-height: 0.8rem;
+			}
+			.ri_qi>span{
+				color:#00bc12;
+				float:left;
+				font-size: 0.2rem;
+			}
+			.ri_qi>a{
+				color:#888;
+				float:right;
+				font-size: 0.18rem;
+			}
+			.li_bai{
+				width:100%;
+				height:2rem;
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
+			}
+			.li_bai>li{
+				width:22%;
+				height:42%;
+				border:0.01rem solid #ccc;
+				margin-top: 2%;
+				font-size: 0.2rem;
+				padding-top:0.15rem;
+				box-sizing: border-box;
+			}
+			.li_bai>li>p{
+				text-align: center;
+			}
+			.li_bai>li>p:nth-of-type(2){
+				color:#ff5700;
+			}
+			.gai_tui{
+				width:100%;
+				height:auto;
+				padding:0.5rem 0 2rem 0;
+				box-sizing: border-box;
+				background: white;
+			}
+			.gai_tui_area{
+				width:6.6rem;
+				height:100%;
+				margin:0 auto;
+			}
+			.gai_tui_area>p:nth-of-type(1){
+				height:0.5rem;
+				line-height: 0.5rem;
+				font-size: 0.26rem;
+				color:#888;
+			}
+			.gai_tui_area>p:nth-of-type(2){
+				margin-top:0.2rem;
+				font-size:0.2rem;
+				color:#666;
+				letter-spacing: 0.02rem;
+			}
+			.dian_hua{
+				width:100%;
+				height:1rem;
+				background: white;
+				z-index: 1000;
+				box-shadow: 0 0 0.2rem #ccc;
+				margin-top: 0.1rem;
+				position:fixed;
+				bottom:0;
+				left:0;
+			}
+			.dian_hua_area{
+				width:6.6rem;
+				height:100%;
+				margin:0 auto;
+				font-size:0.2rem;
+				line-height: 1rem;
+			}
+			.dian_hua_area>span{
+				font-size:0.3rem;
+			}
+			.dian_hua_area>a{
+				width:1.5rem;
+				height:0.5rem;
+				line-height: 0.5rem;
+				text-align: center;
+				display: inline-block;
+				float:right;
+				margin:0.25rem auto;
+			}
+			.dian_hua_area>a:nth-of-type(2){
+				border:0.01rem solid #ff9500;
+				color:#ff9500;
+				border-radius: 0.05rem;
+			}
+			.dian_hua_area>a:nth-of-type(1){
+				width:1.53rem;
+				height:0.53rem;
+				background: #ff9500;
+				color:white;
+				border-radius: 0.05rem;
+				margin-left:0.2rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<a href="javascript:;">＜返回</a>
+			<span class="title">行程简介</span>
+		</div>
+		<div class="banner">
+			<ul>
+				<li style="display:block;">
+					<a href="javascript:;">
+						<img src="img/5.jpg" />
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img src="img/3.jpg" />
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img src="img/4.jpg" />
+					</a>
+				</li>
+			</ul>
+			<ol>
+				<li style="background:white"></li>
+				<li></li>
+				<li></li>
+			</ol>
+			<span>
+				<img src="img/banner_like_nor.png" class="hui"/>
+				<img src="img/banner_like_sel.png" class="hong"/>
+			</span>
+			<a href="javascript:;">
+				<img src="img/banner_share.png" />
+			</a>
+		</div>
+		<div class="yun_nan">
+			<div class="yun_nan_area">
+				<p>云南-香格里拉-丽江-大理-昆明3飞6日游途牛自营</p>
+			</div>
+		</div>
+		<div class="di_yi">
+			<div class="di_yi_area">
+				<div class="di_yi_top">
+					<span>第一天</span>北京 → 昆明  → 大理
+				</div>
+				<div class="jiu_dian">
+					<p><span class="fa fa-car"></span>早餐/午餐</p>
+					<p><span class="fa fa-heart"></span>五星级宾馆</p>
+				</div>
+				<p>中午抵达万仙山用中餐后坐小交通工具（自理45元/人）浏览令人惊叹无比的世界第八大奇迹绝壁长廊亮洞，
+				天池，惊险冠绝太行绝壁直立的红岩绝壁大峡谷，观景台 红石桥，乳权门，鸳鸯石中午抵达万仙山用中餐后坐小交通工具（自理45元/人）浏览令人惊叹无比的世界第八大奇迹绝壁长廊亮洞，
+				天池，惊险冠绝太行绝壁直立的红岩绝壁大峡谷，观景台 红石桥，乳权门，鸳鸯石中午抵达万仙山用中餐后坐小交通工具（自理45元/人）浏览令人惊叹无比的世界第八大奇迹绝壁长廊亮洞，
+				天池，惊险冠绝太行绝壁直立的红岩绝壁大峡谷，观景台 红石桥，乳权门，鸳鸯石</p>
+			</div>
+		</div>
+		<div class="di_yi">
+			<div class="di_yi_area">
+				<div class="di_yi_top">
+					<span>第二天</span>大理 → 丽江  
+				</div>
+				<div class="jiu_dian">
+					<p><span class="fa fa-car"></span>早餐/午餐</p>
+					<p><span class="fa fa-heart"></span>五星级宾馆</p>
+				</div>
+				<p>中午抵达万仙山用中餐后坐小交通工具（自理45元/人）浏览令人惊叹无比的世界第八大奇迹绝壁长廊亮洞，
+				天池，惊险冠绝太行绝壁直立的红岩绝壁大峡谷，观景台 红石桥，乳权门，鸳鸯石中午抵达万仙山用中餐后坐小交通工具（自理45元/人）浏览令人惊叹无比的世界第八大奇迹绝壁长廊亮洞，
+				天池，惊险冠绝太行绝壁直立的红岩绝壁大峡谷，观景台 红石桥，乳权门，鸳鸯石中午抵达万仙山用中餐后坐小交通工具（自理45元/人）浏览令人惊叹无比的世界第八大奇迹绝壁长廊亮洞，
+				天池，惊险冠绝太行绝壁直立的红岩绝壁大峡谷，观景台 红石桥，乳权门，鸳鸯石</p>
+			</div>
+		</div>
+		<div class="chu_xing">
+			<div class="chu_xing_area">
+				<div class="ri_qi">
+					<span>出行日期</span>
+					<a href="javascript:;">近一个月 ></a>
+				</div>
+				<ul class="li_bai">
+					<li>
+						<p>8月12 周六</p>
+						<p>&yen;5660</p>
+					</li>
+					<li>
+						<p>8月12 周六</p>
+						<p>&yen;5660</p>
+					</li>
+					<li>
+						<p>8月12 周六</p>
+						<p>&yen;5660</p>
+					</li>
+					<li>
+						<p>8月12 周六</p>
+						<p>&yen;5660</p>
+					</li>
+					<li>
+						<p>8月12 周六</p>
+						<p>&yen;5660</p>
+					</li>
+					<li>
+						<p>8月12 周六</p>
+						<p>&yen;5660</p>
+					</li>
+					<li>
+						<p>8月12 周六</p>
+						<p>&yen;5660</p>
+					</li>
+					<li>
+						<p>8月12 周六</p>
+						<p>&yen;5660</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="gai_tui">
+			<div class="gai_tui_area">
+				<p>改退规则</p>
+				<p>中午抵达万仙山用中餐后坐小交通工具（自理45元/人）浏览令人惊叹无比的世界第八大奇迹绝壁长廊亮洞，
+				天池，惊险冠绝太行绝壁直立的红岩绝壁大峡谷，观景台 红石桥，乳权门，鸳鸯石中午抵达万仙山用中餐后坐小交通工具（自理45元/人）浏览令人惊叹无比的世界第八大奇迹绝壁长廊亮洞，
+				天池，惊险冠绝太行绝壁直立的红岩绝壁大峡谷，观景台 红石桥，乳权门，鸳鸯石中午抵达万仙山用中餐后坐小交通工具（自理45元/人）浏览令人惊叹无比的世界第八大奇迹绝壁长廊亮洞，
+				天池，惊险冠绝太行绝壁直立的红岩绝壁大峡谷，观景台 红石桥，乳权门，鸳鸯石</p>
+			</div>
+		</div>
+		<div class="dian_hua">
+			<div class="dian_hua_area">
+				&yen;<span>1880</span>起<a href="购买成功.html">立即购买</a><a href="javascript:;">电话预定</a>
+			</div>
+		</div>
+	</body>
+	<script src="jquery-3.1.1.min.js" ></script>
+	<script>
+		//轮播图
+		var index=0;
+		var timer;	
+		var bian=function(){
+			index++;
+			if(index>2){
+				index=0;
+			}
+			$(".banner>ul>li").eq(index).stop().fadeIn(500).siblings().fadeOut(500);
+			yuan();
+		}
+		timer=setInterval(bian,1500);
+		$(".banner").on("touchstart",function(ev){
+			console.log(ev.target.scrollLeft);
+			clearInterval(timer);
+			$(".banner>ol>li").click(function(){
+			    index=$(this).index();
+			    yuan();
+			    $(".banner>ul>li").eq(index).stop().fadeIn(500).siblings().fadeOut(500);
+		   });
+		}).on("touchend",function(){
+			timer=setInterval(bian,1500);
+		});
+		function yuan(){
+			$(".banner>ol>li").eq(index).css("background","white").siblings().css("background","rgba(0,0,0,0.3)");
+		}
+		
+		
+		//点击灰色的变成红色的
+		$(".hui").click(function(){
+			$(".hui").css("display","none");
+			$(".hong").css("display","inline-block");
+		})
+		
+		
+	</script>
+</html>

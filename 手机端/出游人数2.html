@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>出游人数2</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="font.js"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			li{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+				display: block;
+			}
+			
+			input{
+				outline: none;
+				border: none;
+			}
+			/*头部*/
+			.header{
+				width:100%;
+				height:auto;
+				margin:0 auto;
+				line-height: 1rem;
+				border-bottom: 0.01rem solid #eee;
+				padding-left: 0.1rem;
+				box-sizing: border-box;
+				overflow: hidden;
+			}
+			.header>a{
+				font-size:0.3rem;
+				color:#000;
+				float: left;
+			}
+			.title{
+				width: 80%;
+				display: inline-block;
+				font-size:0.36rem;
+				color:#000;
+				float:left;
+				text-align: center;
+			}
+			/*内容*/
+			.shang_hai{
+				width:100%;
+				height:.88rem;
+				background-color: #ffffff;
+				border-bottom: .01rem solid #e6e6e6;
+			}
+			.shang_hai p,
+			.number>p:first-child,.lian_xi>p,
+			.number1>p:first-child,.lian_xi>p{
+				width: 4.5rem;
+				height: .7rem;
+				font-size: .4rem;
+				font-weight: normal;
+				line-height: .88rem;
+				letter-spacing: 0rem;
+				color: #363636;
+				padding-left: .35rem;
+				box-sizing: border-box;
+			}
+			.number,.number1{
+				width:100%;
+				height: auto;
+				background-color: #ffffff;
+				border-bottom: .01rem solid #e6e6e6;
+				position: relative;
+			}
+			.number>i,.number1>i{
+				display: inline-block;
+				width: 100%;
+				height: .6rem;
+				font-size:.30rem ;
+				padding-left: .35rem;
+				
+			}
+			.cheng_ren,.er_tong{
+				width: 1.7rem;
+				height: .5rem;
+				position: absolute;
+				top: .2rem;
+				right: .3rem;
+			}
+			.jian,.jian1{
+				width: .5rem;
+				height: .5rem;
+				border: solid 1px #888888;
+				border-radius: 50%;
+				float: left;
+			}
+			.jian>a,.jia>a,.jian1>a,.jia1>a{
+				color: #000000;
+				font-size: .2rem;
+				border-radius: .01rem;
+				line-height: .45rem;
+				text-align: center;
+				font-size: .5rem;
+			}
+			.cheng_ren span,.er_tong span{
+				display: inline-block;
+				width: .15rem;
+				height: .22rem;
+				font-size: .36rem;
+				font-weight: normal;
+				line-height: .88rem;
+				letter-spacing: 0rem;
+				color: #000000;
+				position: absolute;
+				top: -.2rem;
+				left: .75rem;
+			}
+			.jia,.jia1{
+				width: .5rem;
+				height: .5rem;
+				border: solid 1px #888888;
+				border-radius: 50%;
+				float: right;
+			}
+			.lian_xi{
+				width: 100%;
+				height: 2rem;
+				border-bottom: .01rem solid #e6e6e6;
+			}
+			.lian_xi>p{
+				padding-top: .6rem;
+				box-sizing: border-box;
+				margin-bottom: .05rem;
+			}
+			.lian_xi input{
+				width: 3rem;
+				height: .5rem;
+				margin-left: .35rem;
+				font-size: .26rem;
+				font-weight: normal;
+				line-height: .5rem;
+				letter-spacing: 0rem;
+				color: #b2b2b2;
+			}
+			.kong{
+				width: 100%;
+				height: 3.5rem;
+			}
+			.db_area{
+				width: 100%;
+				height: 1.2rem;
+				background-color: #ffffff;
+				padding: .28rem .35rem 0rem .35rem;
+				border-top: .01rem solid #e6e6e6;
+				box-sizing: border-box;
+				position: relative;
+			}
+			.db_area p{
+				font-size: .26rem;
+				font-weight: normal;
+				letter-spacing: 0rem;
+				color: #363636;
+			}
+			.db_area span{
+				display: inline-block;
+				width: .89rem;
+				height: .25rem;
+				font-size: .3rem;
+				font-weight: normal;
+				line-height: .27rem;
+				letter-spacing: 0rem;
+				color: #363636;
+				position: absolute;
+				top: .7rem;
+				left: .35rem;
+			}
+			.db_area a{
+				float: right;
+				width: 2rem;
+				height: .7rem;
+				background: #ff9500;
+				font-size: .26rem;
+				font-weight: normal;
+				letter-spacing: 0rem;
+				color: #ffffff;
+				line-height: .7rem;
+				text-align: center;
+				margin-top: -.25rem;
+			}
+		</style>
+	</head>
+	<body>
+		<!--头部-->
+		<div class="header">
+			<a href="javascript:;">＜返回</a>
+			<span class="title">出游人数</span>
+		</div>
+		<!--内容-->
+		<div class="shang_hai">
+			<p>上海迪士尼乐园成人票</p>
+		</div>
+		<!--数量-->
+		<div class="number">
+			<p>成人</p>
+			<i>￥1226</i>
+			<div class="cheng_ren">
+				<div class="jian"><a href="javascript:;">-</a></div>
+			    <span>0</span>
+				<div class="jia"><a href="javascript:;">+</a></div>
+			</div>
+		</div>
+		<div class="number1">
+			<p>儿童</p>
+			<i>￥999</i>
+			<div class="er_tong">
+				<div class="jian1"><a href="javascript:;">-</a></div>
+			    <span>0</span>
+				<div class="jia1"><a href="javascript:;">+</a></div>
+			</div>
+		</div>
+		<!--联系人-->
+		<div class="lian_xi">
+			<p>联系人：</p>
+			<input placeholder="请输入联系人"/>
+		</div>
+		<!--手机号码-->
+		<div class="lian_xi">
+			<p>手机号码：</p>
+			<input placeholder="请输入联系人"/>
+		</div>
+		<!--备注-->
+		<div class="lian_xi">
+			<p>备注：</p>
+			<input placeholder="请输入联系人"/>
+		</div>
+		<div class="kong"></div>
+		<!--底部-->
+		<div class="db_area">
+			<p>已选择：0位成人  0位儿童</p>
+			<span>￥0</span>
+			<a href="购买成功.html">提交订单</a>
+		</div>
+	</body> 
+	<script src="jquery-3.1.1.min.js"></scri  pt>
+	<script>
+		var num=0;
+		var ren=0;
+		var price=1260
+		var price1=999
+		$(".jian>a").click(function(){
+			if(num>0){
+				num--;
+				ren--;
+				$(".cheng_ren>span").html(num);
+				$(".db_area>p").html("购买数量："+(num)+"位成人"+(ren)+"位儿童");
+				$(".db_area>span").html("￥"+((price*num)+(price1*num)));
+			}
+		})
+		$(".jia>a").click(function(){
+			num++;
+			ren++;
+			$(".cheng_ren>span").html(num);
+			$(".db_area>p").html("购买数量："+(num)+"位成人"+(ren)+"位儿童");
+			$(".db_area>span").html("￥"+(price*num));
+		})
+		
+		$(".jian1>a").click(function(){
+			if(num>0){
+				num--;
+				ren--;
+				$(".er_tong>span").html(num);
+				$(".db_area>p").html("购买数量："+(ren)+"位成人"+(num)+"位儿童");
+				$(".db_area>span").html("￥"+(price1*num));
+			}
+		})
+		$(".jia1>a").click(function(){
+			num++;
+			ren++;
+			$(".er_tong>span").html(num);
+			$(".db_area>p").html("购买数量："+(ren)+"位成人"+(num)+"位儿童");
+			$(".db_area>span").html("￥"+(price1*num));
+		})
+	</script>
+</html>

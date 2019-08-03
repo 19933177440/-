@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>首页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="font.js"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			li{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+				display: block;
+			}
+			
+			input{
+				outline: none;
+			}
+			/*头部*/
+			.header{
+				width:100%;
+				height:auto;
+				margin:0 auto;
+				line-height: 1rem;
+				border-bottom: 0.01rem solid #eee;
+				padding-left: 0.1rem;
+				box-sizing: border-box;
+				overflow: hidden;
+			}
+			.header>a{
+				font-size:0.3rem;
+				color:#000;
+				float: left;
+			}
+			.title{
+				width: 80%;
+				display: inline-block;
+				font-size:0.36rem;
+				color:#000;
+				float:left;
+				text-align: center;
+			}
+			/*搜索框*/
+			.search{
+				width: 100%;
+				height: 1rem;
+				text-align: center;
+				position: relative;
+			}
+			.search input{
+				text-align: center;
+				width: 6.77rem;
+				height: 0.5rem;
+				font-size: 0.30rem;
+				line-height: 0.5rem;
+				background-color: #f0f0f0;
+				position: absolute;
+				top: 0.4rem;
+				left: 0.4rem;
+				background-image: url(../img/main_btn_sea_big.png);
+				background-repeat: no-repeat;
+				background-position: 2rem 0.12rem;
+			}
+			.search input::-webkit-input-placeholder{
+				color: #666;
+			}
+			/*导航栏*/
+			.nav{
+				width: 100%;
+				height: 1rem;
+				background-image: linear-gradient(#ffffff, #ffffff),linear-gradient(#ffffff,#ffffff);
+				box-shadow: inset 0rem -.01rem 0rem 0rem #ffffff;
+				border-bottom: .01rem solid #999;
+				overflow: hidden;
+			}
+			.nav>ul>li{
+				width: 1.47rem;
+				height: 1rem;
+				float: left;
+				font-size: 0.36rem;
+				font-weight: bold;
+				line-height: 0.88rem;
+				letter-spacing: 0rem;
+				text-align: center;
+				margin-right: -0.09rem;
+				float: left;
+			}
+			.nav>ul>li>a{
+				width: 100%;
+				height: 100%;
+				color: #00bc12;
+			}
+			/*景点门票*/
+			.content{
+				width: 100%;
+				height: auto;
+				margin-top: 0.2rem;
+			}
+			.content>span{
+				font-size: 0.5rem;
+				letter-spacing: -0.01rem;
+				color: #363636;
+				font-weight: bold;
+			}
+			.content>a{
+				width: 1rem;
+				height: 0.7rem;
+				font-size: 0.36rem;
+				font-weight: normal;
+				line-height: 0.5rem;
+				letter-spacing: -0.01rem;
+				color: #888888;
+				float: right;
+				margin: .65rem .46rem 0 0;
+			}
+			/*轮播图*/
+			.banner{
+				width: 100%;
+				height: auto;
+				margin: 0.5rem 0 0.3rem;
+			}
+			.swiper-container,.swiper-wrapper{
+				width: 100%;
+				height: 6.3rem;
+			}
+			.swiper-slide{
+				width: 100%;
+				height: 100%;
+				position: relative;
+			}
+			.swiper-slide>img{
+				width: 100%;
+				height: 80%;
+			}
+			.bai{
+				width: 0.48rem;
+				height: 0.44rem;
+				position: absolute;
+				top: .2rem;
+				right:.2rem;
+				z-index: 999;
+				background: url(../img/main_btn_like_big_nor.png) no-repeat center;
+			}
+			.red{
+				background-image:url(../img/main_btn_like_big_sel.png) !important;
+			}
+			.write{
+				width: 6.8rem;
+				height: 1.2rem;
+				position: relative;
+			}
+			.write p{
+				width: 6.8rem;
+				height: .7rem;
+				font-size: .30rem;
+				line-height: .33rem;
+				font-weight: bold;
+			}
+			.write span{
+				width: 1.8rem;
+				height: .5rem;
+				font-size: .36rem;
+				line-height: .5rem;
+				color: #ff9500;
+				position: absolute;
+				bottom: .1rem;
+				left: 0rem;
+			}
+			.write span sub{
+				position: absolute;
+				top: .05rem;
+				left: 1.4rem;
+				font-size: 0.18rem;
+			}
+			/*尾单*/
+			.section{
+				width: 100%;
+				height: auto;
+				position: relative;
+			}
+			.section>span:nth-of-type(1){
+				width: .69rem;
+				height: .34rem;
+				font-size: .5rem;
+				color: #363636;
+				font-weight: bold;
+			}
+			.section a{
+				width: 1rem;
+				height: 0.7rem;
+				font-size: 0.36rem;
+				font-weight: normal;
+				line-height: 0.5rem;
+				letter-spacing: -0.01rem;
+				color: #888888;
+				float: right;
+				margin: .6rem .46rem 0 0;
+			}
+			.section .img{
+				width: 100%;
+				height: 4.4rem;
+				background: url(img/155235201812.jpg) no-repeat;
+				margin-top: .3rem;
+				background-size: 100% 100%;
+				position: relative;
+			}
+			.zhe_zhao{
+				width: 100%;
+				height: .65rem;
+				background: rgba(0,0,0,0.3);
+				position: absolute;
+				bottom: 0rem;
+				left: 0rem;
+			}
+			/*倒计时*/
+			.dao_ji_shi{
+				width: 4rem;
+				height: .8rem;
+				position: absolute;
+				bottom: .2rem;
+				left: .3rem;
+			}
+			.dao_ji_shi>ul>li{
+				width: .56rem;
+				height: .8rem;
+				float: left;
+				line-height: .5rem;
+				background: #454341;
+				margin-right: .1rem;
+				border-radius: 4px;
+			}
+			.dao_ji_shi>ul>li>span{
+				display: inline-block;
+				width: .43rem;
+				height: .55rem;
+				text-align: center;
+				font-size: .20rem;
+				line-height: .3rem;
+				letter-spacing: .01rem;
+				color: #ffffff;
+				margin-left: .05rem;
+				position: relative;
+			}
+			.dao_ji_shi>ul>li>span p:first-child{
+				width: .15rem;
+				height: .15rem;
+				margin-left: .1rem;
+				position: absolute;
+				top: -.30rem;
+				left: 0rem;
+			}
+			.font{
+				width: 6.38rem;
+				height: .7rem;
+				margin-top: .27rem;
+			}
+			.font p{
+				width:100%;
+				height: .3rem;
+				font-size: .26rem;
+				color: #363636;
+				font-weight: bold;
+			}
+			.font p>span{
+				width: 1.95rem;
+				height: .25rem;
+				font-size: .26rem;
+				line-height: .31rem;
+				letter-spacing: 0rem;
+				color: #ff9500;
+				margin-right: .2rem;
+			}
+			.qian{
+				width: 1.2rem;
+				height: .35rem;
+				font-size: .36rem;
+				line-height: .27rem;
+				color: #ff9500;
+				position: absolute;
+				left: 0;
+			}
+			.qian sub{
+				position: absolute;
+				top: .05rem;
+				left: 1.4rem;
+				font-size: 0.18rem;
+			}
+			/*周边游*/
+			.aside{
+				width:100%;
+			    height: 8.2rem;
+			}
+			.aside>span{
+				font-size: 0.5rem;
+				letter-spacing: -0.01rem;
+				color: #363636;
+				font-weight: bold;
+			}
+			.aside>a{
+				width: 1rem;
+				height: 0.4rem;
+				font-size: 0.36rem;
+				font-weight: normal;
+				line-height: 0.2rem;
+				letter-spacing: -0.01rem;
+				color: #888888;
+				float: right;
+				margin: .65rem .46rem 0 0;
+			}
+			.footer{
+				width: 100%;
+				height: 1rem;
+				border-top: 1px solid gray;
+			}
+			.footer>ul{
+				text-align: center;
+				display: flex;
+				justify-content: space-around;
+			}
+			.footer>ul>li{
+				width: 1.2rem;
+				height: 1rem;
+				line-height: .7rem;
+			}
+			.footer>ul>li>a:nth-of-type(1){
+				width: 100%;
+				height: 100%;
+				position: relative;
+			}
+			.footer>ul>li>a:nth-of-type(1)>img{
+				width: .4rem;
+				height: .4rem;
+				background-repeat: no-repeat;
+				position: absolute;
+				top: .1rem;
+				left: .4rem;
+			}
+			.footer>ul>li>a>span{
+				display: inline-block;
+				width: .5rem;
+				height: .19rem;
+				font-size: .2rem;
+				font-weight: bold;
+				line-height: 1.5rem;
+				letter-spacing: 0rem;
+				color: #cccccc;
+			}
+			.footer>ul>li:nth-of-type(2)>a>span{
+				width: 1rem;
+			}
+			.footer>ul>li>a>img:nth-of-type(2){
+				display: none;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="swiper-3.4.2.min.css"/>
+	</head>
+	<body>
+	<!--头部-->
+		<div class="header">
+			<a href="javascript:;">＜返回</a>
+			<span class="title">出游人数</span>
+		</div>
+	<!--搜索框-->
+		<div class="search">
+			 <input type="text" placeholder="搜索想去的地方"/>
+		</div>
+	<!--导航栏-->
+		<div class="nav">
+			<ul>
+				<li><a href="尾单.html">尾单</a></li>
+				<li><a href="周边游.html">周边游</a></li>
+				<li><a href="境内境外.html">境内游</a></li>
+				<li><a href="境内境外.html">境外游</a></li>
+				<li><a href="景点门票.html">景点门票</a></li>
+			</ul>
+		</div>
+	<!--景点门票-->
+		<div class="content">
+			<span>景点门票</span>
+			<a href="景点门票.html">全部></a>
+		<!--轮播图-->
+			<div class="banner">
+				<div class="swiper-container">
+				  <div class="swiper-wrapper">
+				    <div class="swiper-slide">
+				    	<img src="img/01.jpg"/>
+				    	<a href="javascript:;" class="bai"></a>
+				    	<div class="write">
+							<p>海南三亚天涯海角+海边冲奋斗奋斗奋斗地方订单地海边冲奋斗奋斗地方订单地...</p>
+							<span>￥1880<sub>起</sub></span>
+						</div>
+				    </div>
+				    <div class="swiper-slide">
+				    	<img src="img/24.jpg"/>
+				    	<a href="javascript:;" class="bai"></a>
+				    	<div class="write">
+							<p>三亚天涯海角+海边冲奋斗奋斗奋斗地方订单地海边冲奋斗奋斗地方订单地...</p>
+							<span>￥1880<sub>起</sub></span>
+						</div>
+				    </div>
+				    <div class="swiper-slide">
+				    	<img src="img/40.jpg"/>
+				    	<a href="javascript:;" class="bai"></a>
+				    	<div class="write">
+							<p>海南天涯海角+海边冲奋斗奋斗奋斗地方订单地海边冲奋斗奋斗地方订单地...</p>
+							<span>￥1880<sub>起</sub></span>
+						</div>
+				    </div>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<!--尾单-->
+		<div class="section">
+			<span>尾单</span>
+			<a href="尾单.html">全部></a>
+			<div class="img">
+				<div class="zhe_zhao"></div>
+				<div class="dao_ji_shi">
+					<ul>
+						<li>
+							<span>剩余时间</span>
+						</li>
+						<li>
+							<span>
+								<p>天</p>
+								<p class="t"></p>
+							</span>
+						</li>
+						<li>
+							<span>
+								<p>时</p>
+								<p class="s"></p>
+							</span>
+						</li>
+						<li>
+							<span>
+								<p>分</p>
+								<p class="f"></p>
+							</span>
+						</li>
+						<li>
+							<span>
+								<p>秒</p>
+								<p class="m"></p>
+							</span>
+						</li>
+					</ul>
+			    </div>
+			</div>
+			
+			<div class="font">
+				<p><span>#12月20日出发#</span>丽江-大理-香格里拉双飞6日游云南</p>
+				<p>大床蜜月专线，洱海海景房，0自费不走回头路...</p>
+			</div>
+			<span class="qian">￥1880<sub>起</sub></span>
+		</div>
+		
+		<!--周边游-->
+		<div class="aside">
+			<span>周边游</span>
+			<a href="周边游.html">全部></a>
+			
+			<!--轮播图-->
+			<div class="banner">
+				<div class="swiper-container">
+				  <div class="swiper-wrapper">
+				    <div class="swiper-slide">
+				    	<img src="img/01.jpg"/>
+				    	<a href="javascript:;" class="bai"></a>
+				    	<div class="write">
+							<p>海南三亚天涯海角+海边冲奋斗奋斗奋斗地方订单地海边冲奋斗奋斗地方订单地...</p>
+							<span>￥1880<sub>起</sub></span>
+						</div>
+				    </div>
+				    <div class="swiper-slide">
+				    	<img src="img/24.jpg"/>
+				    	<a href="javascript:;" class="bai"></a>
+				    	<div class="write" >
+							<p>三亚天涯海角+海边冲奋斗奋斗奋斗地方订单地海边冲奋斗奋斗地方订单地...</p>
+							<span>￥1880<sub>起</sub></span>
+						</div>
+				    </div>
+				    <div class="swiper-slide">
+				    	<img src="img/40.jpg"/>
+				    	<a href="javascript:;" class="bai"></a>
+				    	<div class="write">
+							<p>海南天涯海角+海边冲奋斗奋斗奋斗地方订单地海边冲奋斗奋斗地方订单地...</p>
+							<span>￥1880<sub>起</sub></span>
+						</div>
+				    </div>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<!--底部-->
+		<div class="footer">
+			<ul>
+				<li>
+					<a href="#">
+						<img src="img/tab_home_nor.png" class="hui"/>
+						<img src="img/tab_home_sel.png"/>
+						<span class="hui_se">首页</span>
+					</a>
+				</li>
+				<li>
+					<a href="关于我们.html">
+						<img src="img/tab_about_nor.png" class="hui1"/>
+						<img src="img/tab_about_sel.png"/>
+						<span>关于我们</span>
+					</a>
+				</li>
+				<li>
+					<a href="我的中心.html">
+						<img src="img/tab_me_nor.png" class="hui2"/>
+						<img src="img/tab_me_sel.png"/>
+						<span>我的</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+	
+	<script src="swiper-3.4.2.min.js"></script>
+	<script src="jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+		//轮播图
+		var mySwiper = new Swiper('.swiper-container', {
+			loop:true,
+		})
+		//爱心
+		$(".bai").click(function(){
+			$(this).toggleClass("red")
+		})
+		
+		
+		//倒计时
+		function getTime(){
+			var nowTime=new Date();
+			var endTime=new Date('2019/05/20 05:21');
+			var xian_zai=endTime.getTime()-nowTime.getTime();
+			
+			var day=Math.floor(xian_zai/1000/60/60/24);
+			var hour=Math.floor(xian_zai/1000/60/60%24);
+			var min=Math.floor(xian_zai/1000/60%60);
+			var miao=Math.floor(xian_zai/1000%60);
+			
+			document.getElementsByClassName("t")[0].innerHTML=day;
+			document.getElementsByClassName("s")[0].innerHTML=hour;
+			document.getElementsByClassName("f")[0].innerHTML=min;
+			document.getElementsByClassName("m")[0].innerHTML=miao;
+		}
+		setInterval(getTime,0)
+		//底部
+		$(".hui").click(function(){
+            $(this).css("display","none").next("img").css("display","block");
+            $(".hui_se").css("color","#00bc12");
+            
+		})
+	</script>
+</html>

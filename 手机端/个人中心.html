@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>个人中心</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="font.js" ></script>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			.header{
+				width:100%;
+				height:auto;
+				margin:0 auto;
+				line-height: 1rem;
+				border-bottom: 0.01rem solid #eee;
+				padding-left: 0.1rem;
+				box-sizing: border-box;
+				overflow: hidden;
+			}
+			.header>a{
+				font-size:0.3rem;
+				color:#000;
+				float: left;
+			}
+			.title{
+				width: 80%;
+				display: inline-block;
+				font-size:0.36rem;
+				color:#000;
+				float:left;
+				text-align: center;
+			}
+			.shi_qi{
+				width:100%;
+				height:1.5rem;
+			}
+			.shi_qi_area{
+				width:6.6rem;
+				line-height: 1.5rem;
+				height:100%;
+				border-bottom:0.01rem solid #ccc;
+				margin:0 auto;
+			}
+			.shi_qi_area>p{
+				width:70%;
+				float:left;
+				font-size: 0.4rem;
+				color:#363636;
+				font-weight: bold;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+			.shi_qi_area>img{
+				width:19%;
+				float:right;
+				height:80%;
+				border-radius: 50%;
+				margin-top:0.15rem;
+			}
+			.shou_cang{
+				width:100%;
+				height:1rem;
+			}
+			.shou_cang_area{
+				width:6.6rem;
+				height:100%;
+				margin:0 auto;
+				border-bottom:0.01rem solid #ccc;
+				line-height: 1rem;
+			}
+			.shou_cang_area>span{
+				float:left;
+				font-size:0.32rem ;
+				color:#363636;
+			}
+			.shou_cang_area>a{
+				float:right;
+				width:0.3rem;
+				height:0.4rem;
+				display: block;
+				text-align: center;
+				line-height: 0.4rem;
+				margin-top:0.3rem;
+			}
+			.shou_cang_area>a>img{
+				width:100%;
+				height:100%;
+				display: block;
+			}
+			.footer{
+				width:100%;
+				height:1rem;
+				border-top:0.01rem solid #ccc;
+				background: white;
+				z-index: 999;
+				margin-top: 5rem;
+			}
+			.footer>ul{
+				width:100%;
+				height:100%;
+				display: flex;
+				justify-content: space-between;
+			}
+			.footer>ul>li{
+				width:32%;
+				height:100%;
+				font-size:0.2rem;
+				text-align: center;
+			}
+			.footer>ul>li>a{
+				width:100%;
+				height:100%;
+				display: block;
+			}
+			.footer>ul>li>a>img{
+				width:0.42rem;
+				height:0.42rem;
+				margin-top:0.2rem;
+			}
+			.footer>ul>li>a>p{
+				color:#ccc;
+			}
+			.xian{
+				display: inline-block;
+			}
+			.cang{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<a href="javascript:;">＜返回</a>
+			<span class="title">个人中心</span>
+		</div>
+		<div class="shi_qi">
+			<div class="shi_qi_area">
+				<p>十七岁的我们真的还年轻...</p>
+				<img src="img/02.jpg" />
+			</div>
+		</div>
+		<div class="shou_cang">
+			<div class="shou_cang_area">
+				<span>我的收藏</span>
+				<a href="我的收藏.html">
+					<img src="img/main_btn_skip.png" />
+				</a>
+			</div>
+		</div>
+		<div class="shou_cang">
+			<div class="shou_cang_area">
+				<span>我的订单</span>
+				<a href="我的订单.html">
+					<img src="img/main_btn_skip.png" />
+				</a>
+			</div>
+		</div>
+		<div class="footer">
+			<ul>
+				<li>
+					<a href="首页.html">
+						<img src="img/tab_home_nor.png" class="xian"/>
+						<img src="img/tab_home_sel.png" class="cang"/>
+						<p>首页</p>
+					</a>
+				</li>
+				<li>
+					<a href="关于我们.html">
+						<img src="img/tab_about_nor.png" class="xian"/>
+						<img src="img/tab_about_sel.png" class="cang"/>
+						<p>关于我们</p>
+					</a>
+				</li>
+				<li>
+					<a href="个人中心.html">
+						<img src="img/tab_me_nor.png" class="xian" style="display:none"/>
+						<img src="img/tab_me_sel.png" class="cang" style="display:inline-block"/>
+						<p style="color:#00bc12">我的</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script src="jquery-3.1.1.min.js" ></script>
+	<script>
+			//底部点击颜色变化	
+		$(".footer>ul>li").click(function(){
+			var index=$(this).index();
+			$(".xian").eq(index).css("display","none").parent().parent().siblings().find(".xian").css("display","inline-block");
+			$(this).find("p").css("color","#00bc12").parent().parent().siblings().find("p").css("color","#ccc");
+			$(".cang").eq(index).css("display","inline-block").parent().parent().siblings().find(".cang").css("display","none");
+		})
+	</script>
+</html>
+

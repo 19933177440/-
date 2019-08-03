@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>我的订单</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="font.js" ></script>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			.header{
+				width:100%;
+				height:auto;
+				margin:0 auto;
+				line-height: 1rem;
+				border-bottom: 0.01rem solid #eee;
+				padding-left: 0.1rem;
+				box-sizing: border-box;
+				overflow: hidden;
+			}
+			.header>a{
+				font-size:0.3rem;
+				color:#000;
+				float: left;
+			}
+			.title{
+				width: 80%;
+				display: inline-block;
+				font-size:0.36rem;
+				color:#000;
+				float:left;
+				text-align: center;
+			}
+			.top{
+				width:100%;
+				height:0.8rem;
+				border-bottom:0.01rem solid #eee;
+			}
+			.top1{
+				width:6.6rem;
+				height:100%;
+				display: flex;
+				justify-content: space-around;
+				margin:0 auto;
+			}
+			.top1>li{
+				width:auto;
+				height:100%;
+				line-height: 0.8rem;
+				font-size: 0.2rem;
+				text-align: center;
+				position:relative;
+				cursor:pointer;
+				color:black;
+			}
+			.top1>li:hover{
+				color:#00bc12;
+			}
+			.top1>li:hover:after{
+				content:"";
+				display: block;
+				width:0.35rem;
+				height:0.03rem;
+				background: #00bc12;
+				position:absolute;
+				bottom:0;
+				left:50%;
+				transform: translate(-50%,0);
+			}
+			.bottom{
+				width:100%;
+				height:10rem;
+				background:#f5f5f5 ;
+			}
+			.bottom_one{
+				width:100%;
+				height:100%;
+			}
+			.bottom_one>li{
+				width:100%;
+				height:100%;
+				display: none;
+			}
+			.bottom_1,.bottom_2,.bottom_3{
+				width:100%;
+				height:100%;
+			}
+			.bottom_1>li,.bottom_2>li,.bottom_3>li{
+				width:100%;
+				height:3rem;
+				margin-bottom: 0.1rem;
+				background: white;
+			}
+			.bottom_1>li>a,.bottom_2>li>a,.bottom_3>li>a{
+				width:6.6rem;
+				height:100%;
+				display: block;
+				margin:0 auto;
+			}
+			.li_top{
+				width:100%;
+				height:60%;
+				border-bottom: 0.01rem solid #eee;
+			}
+			.li_bottom{
+				width:100%;
+				height:40%;
+				line-height:0.8rem;
+				font-size: 0.2rem;
+				color:black;
+			}
+			.li_top>img{
+				width:25%;
+				height:1.2rem;
+				float:left;
+				margin-top:0.3rem;
+			}
+			.li_top>div{
+				padding-top:0.3rem;
+				box-sizing: border-box;
+				float:right;
+				width:70%;
+				height:100%;
+				font-size: 0.2rem;
+				color:black;
+			}
+			.li_top>div>p:nth-of-type(1){
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			.li_top>div>p:nth-of-type(2){
+				color:#878787;
+				margin-top:0.1rem;
+			}
+			.li_top>div>p:nth-of-type(3){
+				font-weight: bold;
+				margin-top:0.3rem;
+				text-align: right;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<a href="javascript:;">＜返回</a>
+			<span class="title">我的订单</span>
+		</div>
+		<div class="top">
+			<ul class="top1">
+				<li>已支付</li>
+				<li>已接单</li>
+				<li>已退款</li>
+			</ul>
+		</div>
+		<div class="bottom">
+			<ol class="bottom_one">
+				<li style="display:block;">
+					<ul class="bottom_1">
+						
+					</ul>
+				</li>
+				<li>
+					<ul class="bottom_2">
+						
+					</ul>
+				</li>
+				<li>
+					<ul class="bottom_3">
+						
+					</ul>
+				</li>
+			</ol>
+		</div>
+	</body>
+	<script src="jquery-3.1.1.min.js" ></script>
+	<script>
+		//选项卡
+		$(".top1>li").click(function(){
+			var aaa=$(this).index();
+			$(this).css("color","#00bc12").siblings().css("color","black");
+			$(".bottom_one>li").eq(aaa).css("display","block").siblings().css("display","none")
+		})
+		
+		
+		var listConfig = [
+			{
+				id:1,
+				imgsrc:"img/3.jpg",
+				isHeart:1,
+				name:"1上海迪士尼7日游上海迪士尼7日游上海迪士尼7日游上海迪士尼7日游",
+				price:1880,
+				des:"商家暂未接单",
+				ren:2,
+				er:1
+			},
+			{
+				id:1,
+				imgsrc:"img/1552352746434.jpg",
+				isHeart:1,
+				name:"2上海迪士尼7日游上海迪士尼7日游上海迪士尼7日游上海迪士尼7日游",
+				price:2690,
+				des:"商家已接单",
+				ren:3,
+				er:2
+			},
+			{
+				id:1,
+				imgsrc:"img/4.jpg",
+				isHeart:1,
+				name:"3上海迪士尼7日游上海迪士尼7日游上海迪士尼7日游上海迪士尼7日游",
+				price:5600,
+				des:"退款成功",
+				ren:4,
+				er:3
+			}
+		];
+		
+		var listConfig1 = [
+			{
+				id:1,
+				imgsrc:"img/2.jpg",
+				isHeart:1,
+				name:"1上海迪士尼7日游上海迪士尼7日游上海迪士尼7日游上海迪士尼7日游",
+				price:1880,
+				des:"已接单",
+				ren:2,
+				er:1
+			},
+			{
+				id:1,
+				imgsrc:"img/1552352486995.jpg",
+				isHeart:1,
+				name:"2上海迪士尼7日游上海迪士尼7日游上海迪士尼7日游上海迪士尼7日游",
+				price:2690,
+				des:"正在处理",
+				ren:3,
+				er:2
+			},
+			{
+				id:1,
+				imgsrc:"img/3.jpg",
+				isHeart:1,
+				name:"3上海迪士尼7日游上海迪士尼7日游上海迪士尼7日游上海迪士尼7日游",
+				price:5600,
+				des:"准备发货",
+				ren:4,
+				er:3
+			}
+		];
+		
+		var listConfig2 = [
+			{
+				id:1,
+				imgsrc:"img/5.jpg",
+				isHeart:1,
+				name:"1上海迪士尼7日游上海迪士尼7日游上海迪士尼7日游上海迪士尼7日游",
+				price:1880,
+				des:"正在退款",
+				ren:2,
+				er:1
+			},
+			{
+				id:1,
+				imgsrc:"img/2.jpg",
+				isHeart:1,
+				name:"2上海迪士尼7日游上海迪士尼7日游上海迪士尼7日游上海迪士尼7日游",
+				price:2690,
+				des:"退款失败",
+				ren:3,
+				er:2
+			},
+			{
+				id:1,
+				imgsrc:"img/4.jpg",
+				isHeart:1,
+				name:"3上海迪士尼7日游上海迪士尼7日游上海迪士尼7日游上海迪士尼7日游",
+				price:5600,
+				des:"退款成功",
+				ren:4,
+				er:3
+			}
+		];
+		
+		    function show(arr){
+				var len = arr.length;
+				var html = "";
+				for(var i=0;i<len;i++){
+					html+='<li>'+
+							'<a href="javascript:;">'+
+								'<div class="li_top">'+
+									'<img src="'+arr[i].imgsrc+'" />'+
+									'<div>'+
+										'<p>'+arr[i].name+'</p>'+
+										'<p>成人 x'+arr[i].ren+'  儿童 x'+arr[i].er+'</p>'+
+										'<p>总价：&yen;'+arr[i].price+'</p>'+
+									'</div>'+
+								'</div>'+
+								'<div class="li_bottom">'+arr[i].des+'</div>'+
+							'</a>'+
+						'</li>';
+				}
+				$(".bottom_1").html(html)
+			}
+			show(listConfig);
+			
+			function show1(arr){
+				var len = arr.length;
+				var html = "";
+				for(var i=0;i<len;i++){
+					html+='<li>'+
+							'<a href="javascript:;">'+
+								'<div class="li_top">'+
+									'<img src="'+arr[i].imgsrc+'" />'+
+									'<div>'+
+										'<p>'+arr[i].name+'</p>'+
+										'<p>成人 x'+arr[i].ren+'  儿童 x'+arr[i].er+'</p>'+
+										'<p>总价：&yen;'+arr[i].price+'</p>'+
+									'</div>'+
+								'</div>'+
+								'<div class="li_bottom">'+arr[i].des+'</div>'+
+							'</a>'+
+						'</li>';
+				}
+				$(".bottom_2").html(html)
+			}
+			show1(listConfig1);
+			
+			function show2(arr){
+				var len = arr.length;
+				var html = "";
+				for(var i=0;i<len;i++){
+					html+='<li>'+
+							'<a href="javascript:;">'+
+								'<div class="li_top">'+
+									'<img src="'+arr[i].imgsrc+'" />'+
+									'<div>'+
+										'<p>'+arr[i].name+'</p>'+
+										'<p>成人 x'+arr[i].ren+'  儿童 x'+arr[i].er+'</p>'+
+										'<p>总价：&yen;'+arr[i].price+'</p>'+
+									'</div>'+
+								'</div>'+
+								'<div class="li_bottom">'+arr[i].des+'</div>'+
+							'</a>'+
+						'</li>';
+				}
+				$(".bottom_3").html(html)
+			}
+			show2(listConfig2);
+	</script>
+</html>

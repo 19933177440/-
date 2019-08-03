@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我的收藏</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="font.js"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			li{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			input{
+				outline: none;
+				border: none;
+			}
+			/*头部*/
+			.header{
+				width:100%;
+				height:auto;
+				margin:0 auto;
+				line-height: 1rem;
+				border-bottom: 0.01rem solid #eee;
+				padding-left: 0.1rem;
+				box-sizing: border-box;
+				overflow: hidden;
+			}
+			.header>a{
+				font-size:0.3rem;
+				color:#000;
+				float: left;
+			}
+			.title{
+				width: 80%;
+				display: inline-block;
+				font-size:0.36rem;
+				color:#000;
+				float:left;
+				text-align: center;
+			}
+			/*搜索框*/
+			.sou_suo{
+				width: 100%;
+				height: 1.17rem;
+				background-color: #ffffff;
+				box-shadow: .06rem .08rem .1rem 0rem 
+					rgba(0, 0, 0, 0.1);
+				position: relative;
+				margin-bottom: .2rem;
+			}
+			.sou_suo>input{
+				width: 100%;
+				height: 100%;
+				background-image: url(../img/main_btn_sea_big.png);
+				background-repeat: no-repeat;
+				background-position: .25rem .45rem;
+				background-size: .35rem .35rem;
+				font-size: .4rem;
+				font-weight: normal;
+				line-height: 1.25rem;
+				letter-spacing: .02rem;
+				color: #cccccc;
+				position: absolute;
+				top: 0rem;
+				left: 0rem;
+				padding-left: .6rem;
+				box-sizing: border-box;
+			}
+			/*内容部分*/
+			.in_area{
+				width: 6.8rem;
+			    height: 12rem;
+			    margin: .2rem auto;
+			}
+			.in:first-child{
+				margin-top: .7rem;
+			}
+			.in{
+				width: 6.8rem;
+			    height: 2.12rem;
+			    margin: .3rem 0rem .2rem;
+			}
+			.zuo{
+				width: 2rem;
+				height: 2.12rem;
+				float: left;
+				position: relative;
+			}
+			.zuo>img:nth-of-type(1){
+				width: 100%;
+				height: 100%;
+			}
+			.zuo>a{
+				width: 0.48rem;
+			    height: 0.44rem;
+			    position: absolute;
+			    top: .1rem;
+			    right: .1rem;
+			}
+			.zuo>a>img{
+				position: absolute;
+			    top: .1rem;
+			    right: .1rem;
+			}
+			.zuo>a:nth-of-type(2){
+				display: none;
+			}
+			.you{
+				width: 4.5rem;
+				height: 2.12rem;
+				float: right;
+				position: relative;
+			}
+			.you p{
+				width: 4.5rem;
+				height: .72rem;
+				font-size: .3rem;
+				font-weight: normal;
+				line-height: .38rem;
+				letter-spacing: 0rem;
+				color: #363636;
+			}
+			.you>span:nth-of-type(1){
+				display: inline-block;
+				width: 4.52rem;
+				height: .6rem;
+				font-size: .23rem;
+				font-weight: normal;
+				line-height: .32rem;
+				letter-spacing: 0rem;
+				color: #888888;
+			}
+			.you>span:nth-of-type(2){
+				display: inline-block;
+				width: .84rem;
+				height: .23rem;
+				font-size: .22rem;
+				font-weight: normal;
+				line-height: .27rem;
+				letter-spacing: 0rem;
+				color: #ff9500;
+				position: absolute;
+				bottom: 0.05rem;
+				left: 0rem;
+			}
+			.you>span:nth-of-type(2) sub{
+				position: absolute;
+				top: 0;
+				left: .8rem;
+			}
+
+		</style>
+	</head>
+	<body>
+		<!--头部-->	
+	    <div class="header">
+			<a href="javascript:;">＜返回</a>
+			<span class="title">我的收藏</span>
+		</div>
+		<!--搜索框-->
+		<div class="sou_suo">
+			 <input type="text" placeholder="搜索景点名称"/>
+		</div>
+		<!--内容部分-->
+		<div class="in_area">
+			<!--第一个-->
+			<div class="in">
+				<div class="zuo">
+					<img src="img/21.jpg"/>
+					<a href="#"><img src="img/main_btn_like_big_nor.png"/></a>
+					<a href="#"><img src="img/main_btn_like_big_sel.png"/></a>
+			    </div>	
+				 <div class="you">
+					<p>华东4市-上海迪士尼乐园-杭州双飞6日游十二道浔味嗨宿水...</p>
+					<span>晚束河古镇内客栈，晚下关海景酒店，晚丽江挂五酒店，全程5晚住宿，更多特色住...</span>
+					<span>￥999<sub>起</sub></span>
+				 </div>
+			</div>
+			<!--第二个-->
+			<div class="in">
+				<div class="zuo">
+					<img src="img/21.jpg"/>
+					<a href="#"><img src="img/main_btn_like_big_nor.png"/></a>
+					<a href="#"><img src="img/main_btn_like_big_sel.png"/></a>
+			    </div>	
+				 <div class="you">
+					<p>华东4市-上海迪士尼乐园-杭州双飞6日游十二道浔味嗨宿水...</p>
+					<span>晚束河古镇内客栈，晚下关海景酒店，晚丽江挂五酒店，全程5晚住宿，更多特色住...</span>
+					<span>￥999<sub>起</sub></span>
+				 </div>
+			</div>
+			<!--第三个-->
+			<div class="in">
+				<div class="zuo">
+					<img src="img/21.jpg"/>
+					<a href="#"><img src="img/main_btn_like_big_nor.png"/></a>
+					<a href="#"><img src="img/main_btn_like_big_sel.png"/></a>
+			    </div>	
+				 <div class="you">
+					<p>华东4市-上海迪士尼乐园-杭州双飞6日游十二道浔味嗨宿水...</p>
+					<span>晚束河古镇内客栈，晚下关海景酒店，晚丽江挂五酒店，全程5晚住宿，更多特色住...</span>
+					<span>￥999<sub>起</sub></span>
+				 </div>
+			</div>
+			<!--第四个-->
+			<div class="in">
+				<div class="zuo">
+					<img src="img/21.jpg"/>
+					<a href="#"><img src="img/main_btn_like_big_nor.png"/></a>
+					<a href="#"><img src="img/main_btn_like_big_sel.png"/></a>
+			    </div>	
+				 <div class="you">
+					<p>华东4市-上海迪士尼乐园-杭州双飞6日游十二道浔味嗨宿水...</p>
+					<span>晚束河古镇内客栈，晚下关海景酒店，晚丽江挂五酒店，全程5晚住宿，更多特色住...</span>
+					<span>￥999<sub>起</sub></span>
+				 </div>
+			</div>
+			<!--第五个-->
+			<div class="in">
+				<div class="zuo">
+					<img src="img/21.jpg"/>
+					<a href="#"><img src="img/main_btn_like_big_nor.png"/></a>
+					<a href="#"><img src="img/main_btn_like_big_sel.png"/></a>
+			    </div>	
+				 <div class="you">
+					<p>华东4市-上海迪士尼乐园-杭州双飞6日游十二道浔味嗨宿水...</p>
+					<span>晚束河古镇内客栈，晚下关海景酒店，晚丽江挂五酒店，全程5晚住宿，更多特色住...</span>
+					<span>￥999<sub>起</sub></span>
+				 </div>
+			</div>
+		
+		</div>
+	</body>
+	<script src="jquery-3.1.1.min.js"></script>
+	<script>
+		//爱心变化
+		$(".zuo>a").click(function(){
+			$(this).next("a").css("display","block")
+		})
+		$(".zuo>a:last-child").click(function(){
+			$(this).css("display","none").prev("a").css("display","block")
+		})
+	</script>
+</html>

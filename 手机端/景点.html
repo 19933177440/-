@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>景点门票</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="font.js"></script>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			ins{
+				text-decoration: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			body{
+				width: 7.5rem;
+			}
+			.header{
+				width:100%;
+				height:auto;
+				margin:0 auto;
+				line-height: 1rem;
+				border-bottom: 0.01rem solid #eee;
+				padding-left: 0.1rem;
+				box-sizing: border-box;
+				overflow: hidden;
+			}
+			.header>a{
+				font-size:0.3rem;
+				color:#000;
+				float: left;
+			}
+			.title{
+				width: 80%;
+				display: inline-block;
+				font-size:0.36rem;
+				color:#000;
+				float:left;
+				text-align: center;
+			}
+			.sou_suo{
+				width: 100%;
+				height: 1.17rem;
+				padding: 0 .36rem;
+				box-shadow: .06rem .08rem .1rem 0 rgba(0, 0, 0, 0.1);
+				display: flex;
+				align-mains: center;
+				margin-bottom: .55rem;
+			}
+			.sou_suo>img{
+				width: .34rem;
+				height: .34rem;
+				margin-right: .19rem;
+				margin-top: .4rem;
+			}
+			.sou_suo>input{
+				width: 5rem;
+				height: 100%;
+				font-size: .4rem;
+				color: #666;
+				border: none;
+				outline: none;
+			}
+			.main{
+				width: 100%;
+				padding: 0 .36rem;
+				display: flex;
+				align-mains: center;
+				position: relative;
+				margin-bottom: .4rem;
+			}
+			.img{
+				width: 1.8rem;
+				height: 1.6rem;
+				background: url(img/1552352687159.jpg);
+				background-size: 100% 100%;
+				position: relative;
+				margin-right: .19rem;
+				/*禁止压缩*/
+				flex-shrink: 0;
+			}
+			.heart{
+				width: .37rem;
+				height: .34rem;
+				position: absolute;
+				top: .1rem;
+				right: .1rem;
+				z-index: 9;
+				background: url(img/main_btn_like_big_nor.png);
+				background-size: 100% 100%;
+			}
+			.name{
+				width: 4rem;
+				font-size: .3rem;
+				color: #363636;
+				margin-bottom: .2rem;
+				font-weight: bold;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			.time{
+				font-size: .24rem;
+				color: #3d9aea;
+				margin-bottom: .15rem;
+			}
+			.addr{
+				font-size: .24rem;
+				color: #878787;
+			}
+			.price{
+				position: absolute;
+				bottom: .2rem;
+				right: .36rem;
+				text-align: right;
+			}
+			.price-now{
+				color: #ff9500;
+				font-size: .36rem;
+			}
+			.icon{
+				font-size: .22rem;
+			}
+			.after{
+				font-size: .18rem;
+				color: #888;
+			}
+			.price-ori{
+				font-size: .24rem;
+				color: #888;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="jquery-3.1.1.min.js"></script>
+		<div class="header">
+			<a href="javascript:;">＜返回</a>
+			<span class="title">景点</span>
+		</div>
+		<div class="sou_suo">
+			<img class="search" src="img/main_btn_sea_samll.png"/>
+			<input id="change" type="text" placeholder="搜索景点名称" />
+		</div>
+		<div id="pannel">
+			<!--<a href="javascript:;" class="main">
+				<div class="img">
+					<div class="heart"></div>
+				</div>
+				<div class="content">
+					<div class="content-name">
+						<div class="name">华东4市-上海迪士尼乐园上海迪士尼乐园上海迪士尼乐园上海迪士尼乐园</div>
+						<div class="time">12:00前可预订今日票</div>
+						<div class="addr">上海市</div>
+					</div>
+				</div>
+				<div class="price">
+					<div class="price-now"><ins class="icon">¥</ins>109<ins class="after">起</ins></div>
+					<div class="price-ori">¥<del>199</del></div>
+				</div>
+			</a>-->
+		</div>
+		
+		<script type="text/javascript">
+			$(document).on("click",".main",function(){
+				console.log("a")
+			});
+			$(document).on("click",".heart",function(){
+//			$(".heart").on("click",function(ev){
+				//阻止冒泡
+				ev.stopPropagation();
+				console.log("heart")
+			});
+			
+			
+			var listConfig = [
+				{
+					id:1,
+					imgsrc:"11.jpg",
+					isHeart:1,
+					name:"100MB",
+					time:"12:00前可预订今日票",
+					addr:"上海市",
+					price:109,
+					oprice:199
+				},
+				{
+					id:1,
+					imgsrc:"",
+					isHeart:1,
+					name:"华东4市-上海迪士尼乐园",
+					time:"12:00前可预订今日票",
+					addr:"上海市",
+					price:109,
+					oprice:199
+				},
+				{
+					id:1,
+					imgsrc:"",
+					isHeart:1,
+					name:"华东3市-上海迪士尼乐园",
+					time:"12:00前可预订今日票",
+					addr:"上海市",
+					price:109,
+					oprice:199
+				},{
+					id:1,
+					imgsrc:"",
+					isHeart:1,
+					name:"华东5市-上海迪士尼乐园",
+					time:"12:00前可预订今日票",
+					addr:"上海市",
+					price:109,
+					oprice:199
+				}
+			];
+			
+			function showHtml(arr){
+				var len = arr.length;
+				var html = "";
+				for(var i=0;i<len;i++){
+					html+='<a href="javascript:;" class="main">';
+					html+='<div class="img">';
+					html+='<div class="heart"></div>';
+					html+='</div>';
+					html+='<div class="content">';
+					html+='<div class="content-name">';
+					html+='<div class="name">'+arr[i].name+'</div>';
+					html+='<div class="time">'+arr[i].time+'</div>';
+					html+='<div class="addr">'+arr[i].addr+'</div>';
+					html+='</div></div>';
+					html+='<div class="price">';
+					html+='<div class="price-now"><ins class="icon">¥</ins>'+arr[i].price+'<ins class="after">起</ins></div>';
+					html+='<div class="price-ori">¥<del>'+arr[i].oprice+'</del></div>';
+					html+='</div></a>';
+				}
+				$("#pannel").html(html)
+			};
+			
+			showHtml(listConfig);
+			
+			
+			$("#change").on("change",function(){
+				var val = $(this).val();
+				console.log(val);
+				
+				var newList = [];
+				
+				for(var i=0;i<listConfig.length;i++){
+					var searchName = listConfig[i].name;
+					if(searchName.indexOf(val)>-1){
+						newList.push(listConfig[i]);
+					};
+				};
+				
+				showHtml(newList);
+			});
+		</script>
+	</body>
+</html>
+

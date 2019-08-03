@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>行程简介</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="font.js" ></script>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			body{
+				background: #eee;
+			}
+			.header{
+				width:100%;
+				height:auto;
+				margin:0 auto;
+				line-height: 1rem;
+				border-bottom: 0.01rem solid #eee;
+				padding-left: 0.1rem;
+				box-sizing: border-box;
+				overflow: hidden;
+			}
+			.header>a{
+				font-size:0.3rem;
+				color:#000;
+				float: left;
+			}
+			.title{
+				width: 80%;
+				display: inline-block;
+				font-size:0.36rem;
+				color:#000;
+				float:left;
+				text-align: center;
+			}
+			.banner{
+				width:100%;
+				height:4rem;
+				margin:0 auto;
+				margin-top:0.2rem;
+				position:relative;
+			}
+			.banner>ul,.banner>ul>li{
+				width:100%;
+				height:100%;
+			}
+			.banner>ul>li{
+				position:absolute;
+				top:0;
+				left:0;
+				display: none;
+			}
+			.banner>ul>li>a>img,.banner>ul>li>a{
+				width:100%;
+				height:100%;
+				display: block;
+			}
+			.banner>ol{
+				width:30%;
+				height:0.03rem;
+				position:absolute;
+				bottom:0.2rem;
+				left:50%;
+				transform: translate(-50%,0);
+				display: flex;
+				justify-content: space-between;
+			}
+			.banner>ol>li{
+				width:30%;
+				height:100%;
+				background: rgba(0,0,0,0.3);
+			}
+			.banner>span>img,.banner>a>img{
+				width:0.3rem;
+				height:0.3rem;
+			}
+			.hong{
+				display: none;
+			}
+			.banner>span{
+				position:absolute;
+				bottom:0rem;
+				right:0.8rem;
+			}
+			.banner>a{
+				position:absolute;
+				bottom:0rem;
+				right:0.3rem;
+			}
+			.he_nan{
+				width:100%;
+				height:1.5rem;
+				background: white;
+			}
+			.he_nan_area{
+				width:6.6rem;
+				height:100%;
+				margin:0 auto;
+			}
+			.he_nan_area>p:nth-of-type(1){
+				color:black;
+				font-size:0.36rem;
+				margin-top:0.15rem;
+			}
+			.he_nan_area>p:nth-of-type(2){
+				color:#ff9500;
+				font-size:0.16rem;
+				margin-top:0.2rem;
+			}
+			.he_nan_area>p:nth-of-type(2)>span{
+				width:0.15rem;
+				height:auto;
+				display: inline-block;
+			}
+			.main{
+				width:100%;
+				height:auto;
+				background: white;
+				margin-top:0.15rem;
+				padding-bottom: 3rem;
+			}
+			.main_area{
+				width:6.6rem;
+				height:100%;
+				margin:0 auto;
+			}
+			.top{
+				width:100%;
+				height:0.8rem;
+				line-height: 0.8rem;
+				border-bottom: 0.01rem solid #ccc;
+				font-size:0.2rem;
+				font-weight: bold;
+			}
+			.top>span{
+				color:lightgreen;
+				margin-right:0.4rem;
+			}
+			.jiu_dian{
+				width:100%;
+				height:1rem;
+				border-bottom: 0.01rem solid #ccc;
+				font-size:0.2rem;
+			}
+			.jiu_dian>p{
+				margin-top:0.25rem;
+				color:#666;
+			}
+			.jiu_dian>p>span{
+				margin-right:0.05rem;
+			}
+			.main_area>p{
+				margin-top:0.2rem;
+				font-size:0.2rem;
+				color:#666;
+				letter-spacing: 0.02rem;
+			}
+			.dian_hua{
+				width:100%;
+				height:1rem;
+				background: white;
+				z-index: 1000;
+				box-shadow: 0 0 0.2rem #ccc;
+				margin-top: 0.1rem;
+				position:fixed;
+				bottom:0;
+				left:0;
+			}
+			.dian_hua_area{
+				width:6.6rem;
+				height:100%;
+				margin:0 auto;
+				font-size:0.2rem;
+				line-height: 1rem;
+			}
+			.dian_hua_area>span{
+				font-size:0.3rem;
+			}
+			.dian_hua_area>a{
+				width:1.5rem;
+				height:0.5rem;
+				line-height: 0.5rem;
+				text-align: center;
+				display: inline-block;
+				float:right;
+				margin:0.25rem auto;
+			}
+			.dian_hua_area>a:nth-of-type(2){
+				border:0.01rem solid #ff9500;
+				color:#ff9500;
+				border-radius: 0.05rem;
+			}
+			.dian_hua_area>a:nth-of-type(1){
+				width:1.53rem;
+				height:0.53rem;
+				background: #ff9500;
+				color:white;
+				border-radius: 0.05rem;
+				margin-left:0.2rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<a href="javascript:;">＜返回</a>
+			<span class="title">行程简介</span>
+		</div>
+		<div class="banner">
+			<ul>
+				<li style="display:block;">
+					<a href="javascript:;">
+						<img src="img/5.jpg" />
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img src="img/3.jpg" />
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img src="img/4.jpg" />
+					</a>
+				</li>
+			</ul>
+			<ol>
+				<li style="background:white"></li>
+				<li></li>
+				<li></li>
+			</ol>
+			<span>
+				<img src="img/banner_like_nor.png" class="hui"/>
+				<img src="img/banner_like_sel.png" class="hong"/>
+			</span>
+			<a href="javascript:;">
+				<img src="img/banner_share.png" />
+			</a>
+		</div>
+		<div class="he_nan">
+			<div class="he_nan_area">
+				<p>#12月20日# 河南郭亮 清幽山 南坪万仙山三日游</p>
+			    <p>距离结束：<span id="t_d"></span>天<span id="t_h"></span>小时<span id="t_m"></span>分</p>
+			</div>
+		</div>
+		<div class="main">
+			<div class="main_area">
+				<div class="top">
+					<span>第一天</span>北京 → 上海 → 曼谷
+				</div>
+				<div class="jiu_dian">
+					<p><span class="zao"></span>早餐/午餐</p>
+					<p><span class="di_zhi"></span>美狄亚酒店18号或曼谷其斯特酒店</p>
+				</div>
+				<p>中午抵达万仙山用中餐后坐小交通工具（自理45元/人）浏览令人惊叹无比的世界第八大奇迹绝壁长廊亮洞，
+				天池，惊险冠绝太行绝壁直立的红岩绝壁大峡谷，观景台 红石桥，乳权门，鸳鸯石中午抵达万仙山用中餐后坐小交通工具（自理45元/人）浏览令人惊叹无比的世界第八大奇迹绝壁长廊亮洞，
+				天池，惊险冠绝太行绝壁直立的红岩绝壁大峡谷，观景台 红石桥，乳权门，鸳鸯石中午抵达万仙山用中餐后坐小交通工具（自理45元/人）浏览令人惊叹无比的世界第八大奇迹绝壁长廊亮洞，
+				天池，惊险冠绝太行绝壁直立的红岩绝壁大峡谷，观景台 红石桥，乳权门，鸳鸯石</p>
+			</div>
+		</div>
+		<div class="dian_hua">
+			<div class="dian_hua_area">
+				&yen;<span>1880</span>起<a href="购买成功.html">立即购买</a><a href="javascript:;">电话预定</a>
+			</div>
+		</div>
+	</body>
+	<script src="jquery-3.1.1.min.js" ></script>
+	<script>
+		//轮播图
+		var index=0;
+		var timer;	
+		var bian=function(){
+			index++;
+			if(index>2){
+				index=0;
+			}
+			$(".banner>ul>li").eq(index).stop().fadeIn(500).siblings().fadeOut(500);
+			yuan();
+		}
+		timer=setInterval(bian,1500);
+		$(".banner").on("touchstart",function(ev){
+			console.log(ev.target.scrollLeft);
+			clearInterval(timer);
+			$(".banner>ol>li").click(function(){
+			    index=$(this).index();
+			    yuan();
+			    $(".banner>ul>li").eq(index).stop().fadeIn(500).siblings().fadeOut(500);
+		   });
+		}).on("touchend",function(){
+			timer=setInterval(bian,1500);
+		});
+//		$(".banner").ontouchstart(function(){
+//			clearInterval(timer);
+//			$(".banner>ol>li").click(function(){
+//			    index=$(this).index();
+//			    yuan();
+//			    $(".banner>ul>li").eq(index).stop().fadeIn(500).siblings().fadeOut(500);
+//		    })
+//		},function(){
+//			timer=setInterval(bian,1500);
+//		})
+		function yuan(){
+			$(".banner>ol>li").eq(index).css("background","white").siblings().css("background","rgba(0,0,0,0.3)");
+		}
+		
+		
+		//点击灰色的变成红色的
+		$(".hui").click(function(){
+			$(".hui").css("display","none");
+			$(".hong").css("display","inline-block");
+		})
+		
+		
+		//定时器
+		function GetRTime(){
+       var EndTime= new Date('2019/03/31 15:30:00');//这里设置距离你预定的时间
+       var NowTime = new Date();
+       var t =EndTime.getTime() - NowTime.getTime();
+       var d=Math.floor(t/1000/60/60/24);
+       var h=Math.floor(t/1000/60/60%24);
+       var m=Math.floor(t/1000/60%60);
+
+       document.getElementById("t_d").innerHTML = d ;
+       document.getElementById("t_h").innerHTML = h ;
+       document.getElementById("t_m").innerHTML = m ;
+      }
+       setInterval(GetRTime,0); 
+	</script>
+</html>
