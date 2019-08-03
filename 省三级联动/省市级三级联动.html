@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			select{
+				width: 200px;
+				padding: 5px;
+			}
+			/*.code-print{
+				box-sizing: border-box;
+				padding: 10px;
+				margin-top: 20px;
+				width: 200px;
+				border: 1px solid deeppink;
+			}*/
+		</style>
+	</head>
+	<body>
+		<div>
+			<!--先定义三个select下拉菜单-->
+			<select id="province">
+				<option value=""></option>
+			</select>
+			<select id="city">
+				<option value=""></option>
+			</select>
+			<select id="area">
+				<option value=""></option>
+			</select>
+		</div>
+	</body>
+	<script src="jquery-3.1.1.min.js"></script>
+	<script>
+		//定义全局变量，用来储存获取数据
+		var data;
+		//调用jquery中的get方法获取本地数据
+		//then:get方法返回之后执行的方法，res参数为返回数据
+		$.get('districts.json').then(function(res){
+//			将获取到的res数据赋值给data
+			data = res;
+			console.log(res);
+			showProwince(data[100000])
+		});
+		
+		function showProwince(data){
+			var html = '';
+//			遍历对象,in前边为对象的每个元素,后边为整个对象
+			for(var item in data){
+				html += "<option value='"+item+"'>"+data[item]+"</option>"
+			};
+//			将循环生成的option元素添加到id为province的元素
+			$('#province').html(html)
+		}
+		
+		$('#province').on('change',function(){
+//			find:查找元素,查找被选中的option元素的value值
+			var provinceId = $(this).find('option:selected').val();
+			console.log(provinceId);
+			
+//			执行生成市html的方法,并把对应的数据传进去
+			showCity(data[provinceId])
+		});
+		
+		function showCity(data){
+			var html = '';
+//			遍历对象,in前边为对象的每个元素,后边为整个对象
+			for(var item in data){
+				html += "<option value='"+item+"'>"+data[item]+"</option>"
+			};
+//			将循环生成的option元素添加到id为province的元素
+			$('#city').html(html)
+		}
+		
+		$('#city').on('change',function(){
+//			find:查找元素,查找被选中的option元素的value值
+			var provinceId = $(this).find('option:selected').val();
+			console.log(provinceId);
+			
+//			执行生成市html的方法,并把对应的数据传进去
+			areaCity(data[provinceId])
+		});
+		
+		function areaCity(data){
+			var html = ''; 
+//			遍历对象,in前边为对象的每个元素,后边为整个对象
+			for(var item in data){
+				html += "<option value='"+item+"'>"+data[item]+"</option>"
+			};
+//			将循环生成的option元素添加到id为province的元素
+			$('#area').html(html)
+		}
+	</script>
+</html>
