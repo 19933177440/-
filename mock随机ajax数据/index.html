@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+	</head>
+	<body>
+		<button type="button">點擊查看控制台</button>
+		<ul class="area">
+			
+		</ul>
+	</body>
+	<!-- 需要联网，网址是线上 -->
+	<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+        <script src="http://mockjs.com/dist/mock.js"></script>
+        <script type="text/javascript">
+            //调用mock方法模拟数据
+            let template = [{
+                "userName": '@name', //模拟名称
+                "age|1-100": 100, //模拟年龄(1-100)
+                "color": "@color", //模拟色值
+                "date": "@date('yyyy-MM-dd')", //模拟时间
+                "url": "@url()", //模拟url
+                "content": "@cparagraph()" ,//模拟文本
+            },
+			{"content": "@cparagraph()" },
+			{"content": "@cparagraph()" },
+			{"content": "@cparagraph()" }];
+            //拦截所有的.json类型的ajax请求
+            let result = Mock.mock(/\.json/, template);
+
+			
+			
+            //ajax请求
+            $("button").on("click", function() {
+                $.ajax({
+                    url: "abczzzz.json", //请求的url地址(只需要包含.json)
+                    dataType: "json", //返回格式为json
+                    async: true, //请求是否异步，默认为异步，这也是ajax重要特性
+                    data: {}, //参数值
+                    type: "GET", //请求方式
+                    beforeSend: function() {},
+                    success: function(req) {
+						var html=""
+						var len = template.length
+						for(var i=0;i<len;i++){
+							html+='<li>'+req[i].content+'</li>';
+						}
+						$(".area").html(html)
+                    },
+                    complete: function() {},
+                    error: function() {}
+                });
+            });
+        </script>
+		
+</html>
