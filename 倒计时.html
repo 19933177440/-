@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		   *{ 
+				margin:0; 
+				padding:0; 
+				list-style:none;
+	        }
+			.dao_ji_shi{
+				  width: 400px;
+				  height: 100px;
+				  margin:100px auto;
+				  background-color: white;
+				  display: flex;
+				  justify-content:space-between;
+				  flex-direction:row;
+				  align-items:center;
+			}
+			.dao_ji_shi_a,.dao_ji_shi_b,.dao_ji_shi_c,.dao_ji_shi_d,.dao_ji_shi_e{
+				  width: 20%;
+				  height: 80%;
+				  background-color: rgba(0, 0, 0, 0.5);
+				  display: flex;
+				  align-items:center;
+				  flex-direction:column;
+				  justify-content:space-around;
+				  box-sizing: border-box;
+				  padding: 20px 0px;
+				  margin-left:10px;
+			}
+			.dao_ji_shi>span>p{
+				  color: #ffffff;
+				  font-size: 20px;
+				  font-weight:900;
+			}     
+		</style>
+		
+	</head>
+	<body>
+	<div class="dao_ji_shi">
+		  <span class="dao_ji_shi_a">
+		      <p>剩余</p>
+		      <p>时间</p>
+		  </span>
+		  <span class="dao_ji_shi_b">
+		      <p id="t_d"></p>
+		      <p>天</p>
+		  </span>
+		  <span class="dao_ji_shi_c">
+		      <p id="t_h"></p>
+		      <p>时</p>
+		  </span>
+		  <span class="dao_ji_shi_d">
+		      <p id="t_m"></p>
+		      <p>分</p>
+		  </span>
+		  <span class="dao_ji_shi_e">
+		      <p id="t_s"></p>
+		      <p>秒</p>
+		  </span>
+    </div>
+	<div id="show"></div>
+	<div class="content2">
+		<div class="txtshow">距离设置时间还有<span  id="timeShow"></span>天</div>
+	</div>
+	<div id="LeftTime"></div>
+	</body>
+	<script>
+	 	window.onload = function(){
+			showTime();
+		}
+		function checkTime(i){  //补位处理
+			if(i<10){
+				i="0"+i;
+			}
+			return i;
+		}
+		function showTime(){
+			var now=new Date();
+			var year=now.getFullYear();
+			var month=  now.getMonth()+1 ;
+			var day=  now.getDate()  ;
+			var h=now.getHours()  ;
+			var m=now.getMinutes()  ;
+			var s=now.getSeconds()  ;
+			m=checkTime(m)
+			s=checkTime(s)
+
+			var weekday=new Array(7)
+			weekday[0]="星期日"
+			weekday[1]="星期一"
+			weekday[2]="星期二"
+			weekday[3]="星期三"
+			weekday[4]="星期四"
+			weekday[5]="星期五"
+			weekday[6]="星期六"
+			var d=now.getDay();
+			document.getElementById("show").innerHTML=""+year+"年"+month+"月"+day+"日 "+ weekday[d]+" "+h+":"+m+":"+s;
+			setTimeout('showTime()',500)// 定时500毫秒执行一次showTime()
+		}
+	</script>
+	<script>
+		window.onload = function(){
+			var timedate= new Date(2020,3,17);     //自定义结束时间  '阴历
+			var now =  new Date();   
+			var date = timedate.getTime() - now.getTime();    //得出的为毫秒
+			var time = Math.ceil((date)/(1000 * 60 * 60 * 24)); //1000 * 60 * 60 * 24一天的秒数
+			if(time > 0 ){
+				document.getElementById('timeShow').innerHTML = time;
+			}
+		}
+	</script>
+	<script>
+		function FreshTime(){
+			var endtime=new Date("2020/3/17,12:00:00");//结束时间	阳历
+			var nowtime = new Date();//当前时间
+			var lefttime= parseInt((endtime.getTime()-nowtime.getTime())/1000); 
+			d=parseInt(lefttime/3600/24); ;
+			h= parseInt(lefttime/(60*60))%24 ;
+			m= parseInt(lefttime/(60))%60 ;
+			s= parseInt(lefttime%60);
+		   
+			document.getElementById("LeftTime").innerHTML=d+"天"+h+"小时"+m+"分"+s+"秒";
+		   
+			if(lefttime <0){
+			document.getElementById("LeftTime").innerHTML="团购已结束";
+			clearInterval(sh);
+			}
+		}
+		FreshTime()
+		var sh;
+		sh=setInterval(FreshTime,1000);
+	</script>
+</html>
